@@ -1,52 +1,58 @@
 let hs = 0, cs = 0;
-const user_sc_div = document.getElementById('user-sc');
-const comp_sc_div = document.getElementById('comp-sc');
+const user_sc_span = document.getElementById('user-sc');
+const comp_sc_span = document.getElementById('comp-sc');
+const sb_div = document.querySelector('scoreboard');
+const result_div = document.querySelector('result > p');
+const rock_div = document.getElementById('r');
+const paper_div = document.getElementById('p');
+const scissor_div = document.getElementById('s');
 
-
-
-
-for (let i = 0; i < 5; i++) {
-    let h = parseInt(prompt("\n0-Rock, 1-Paper, 2-Scissor"));
+function compChoice() {
+    const choices = ['r', 'p', 's'];
     let c = Math.floor(Math.random() * 10);
     c = c%3;
-    if (h === 0) {
-        if (c === 2) {
-            hs++;
-            console.log("H beat C");
-        } else if (c === 1) {
-            cs++;
-            console.log("c beat h");
-        } else {
-            console.log("Tie");
-        }
-    } else if (h === 1) {
-        if (c === 2) {
-            cs++;
-            console.log("c beat h");
-        } else if (c === 0) {
-            hs++;
-            console.log("h beat c");
-        } else {
-            console.log("Tie");
-        }
-    } else if (h === 2) {
-        if (c === 1) {
-            hs++;
-            console.log("H beat C");
-        } else if (c === 0) {
-            cs++;
-            console.log("c beat h");
-        } else {
-            console.log("Tie");
-        }
-    }
-}
-if (hs > cs) {
-    console.log("H won!");
-} else if (cs > hs) {
-    console.log("C won!");
-} else {
-    console.log("It's a draw");
+    return choices[c];
 }
 
+function win() {
+    hs++;
+}
+
+function game(user_c) {
+    const comp_c = compChoice();
+    if (user_c === 'r') {
+        if (comp_c === 's') {
+            hs++;
+        } else if (comp_c === 'p') {
+            cs++;
+        } 
+    } else if (user_c === 'p') {
+        if (comp_c === 's') {
+            cs++;
+        } else if (comp_c === 'r') {
+            hs++;
+        } 
+    } else if (user_c === 's') {
+        if (comp_c === 'p') {
+            hs++;
+        } else if (comp_c === 'r') {
+            cs++;
+        }
+    }
+    rock_div.addEventListener('click', function () {
+        game('r');
+    })
+}
+
+function main(params) {
+    rock_div.addEventListener('click', function () {
+        game('r');
+    })
+    paper_div.addEventListener('click', function () {
+        game('p');
+    })
+    scissor_div.addEventListener('click', function () {
+        game('s');
+    })
+}
 
