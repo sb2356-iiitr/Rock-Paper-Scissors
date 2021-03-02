@@ -71,3 +71,16 @@ header {
     width: 200px;
     height: 200px;
 }
+
+.choice:hover {
+    border: 1px solid #fff;
+    box-shadow: 0 2px 3px rgba(0,0,0,0.15),    /* Shadow  */
+    0 -1px 3px rgba(0,0,0,0.15);
+}
+
+#action-m {
+    text-align: center;
+    color: ghostwhite;
+    font-size: 46px;
+    font-weight: bold;
+}
