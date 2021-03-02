@@ -45,3 +45,29 @@ header {
     right: -25px;
     top: 30px;
 }
+
+.result {
+    font-size: 40px;
+    color: white;
+}
+
+.result p {
+    font-weight: bold;
+    text-align: center;
+}
+
+.choices {
+    text-align: center;
+    margin: 50px 0px;
+    padding: 10px 0px;
+}
+
+.choice {
+    display: inline-block;
+    margin: 0 25px;
+}
+
+.choice img {
+    width: 200px;
+    height: 200px;
+}
